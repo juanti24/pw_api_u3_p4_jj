@@ -13,31 +13,27 @@ import jakarta.persistence.Table;
 public class Materia {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_materia")
-	@SequenceGenerator(name = "seq_materia", sequenceName = "seq_materia", allocationSize = 1)
-	@Column(name = "id")
+	@Column(name = "mate_id")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "matr_id_seq")
+	@SequenceGenerator(name = "mate_id_seq", sequenceName = "mate_id_seq", allocationSize = 1)
 	private Integer id;
-	@Column(name = "codigo")
-	private String codigo;
-	@Column(name = "nombre")
+
+	@Column(name = "mate_nombre")
 	private String nombre;
 
-	
-	// SET Y GET
+	@Column(name = "mate_creditos")
+	private Integer creditos;
+
+	@Column(name = "mate_semestre")
+	private String semestre;
+
+	// GET & SET
 	public Integer getId() {
 		return id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
-	}
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
 	}
 
 	public String getNombre() {
@@ -47,11 +43,21 @@ public class Materia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	@Override
-	public String toString() {
-		return "Materia [id=" + id + ", codigo=" + codigo + ", nombre=" + nombre + "]";
+
+	public Integer getCreditos() {
+		return creditos;
 	}
 
+	public void setCreditos(Integer creditos) {
+		this.creditos = creditos;
+	}
+
+	public String getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(String semestre) {
+		this.semestre = semestre;
+	}
 
 }

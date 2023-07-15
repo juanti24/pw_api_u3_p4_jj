@@ -1,5 +1,7 @@
 package com.uce.edu.demo.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,17 +12,42 @@ import com.uce.edu.demo.repository.modelo.Materia;
 public class MateriaServiceImpl implements IMateriaService {
 
 	@Autowired
-	private IMateriaRepository iMateriaRepository;
+	private IMateriaRepository materiaRepository;
 
 	@Override
-	public Materia buscarPorCodigo(String codigo) {
+	public Materia buscarPorId(Integer id) {
 		// TODO Auto-generated method stub
-		return this.iMateriaRepository.buscarPorCodigo(codigo);
+		return this.materiaRepository.buscarPorId(id);
 	}
 
 	@Override
-	public void guardar(Materia materia) {
+	public Materia buscarPorNombre(String nombre) {
 		// TODO Auto-generated method stub
-		this.iMateriaRepository.insertar(materia);
+		return this.materiaRepository.buscarPorNombre(nombre);
 	}
+
+	@Override
+	public void registrarMateria(Materia materia) {
+		// TODO Auto-generated method stub
+		this.materiaRepository.insertar(materia);
+	}
+
+	@Override
+	public void actualizar(Materia materia) {
+		// TODO Auto-generated method stub
+		this.materiaRepository.actualizar(materia);
+	}
+
+	@Override
+	public void borrar(Integer id) {
+		// TODO Auto-generated method stub
+		this.materiaRepository.borrar(id);
+	}
+
+	@Override
+	public List<Materia> mostrarTodos() {
+		// TODO Auto-generated method stub
+		return this.materiaRepository.buscarTodos();
+	}
+
 }
